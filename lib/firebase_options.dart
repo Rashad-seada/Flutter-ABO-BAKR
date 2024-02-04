@@ -44,38 +44,43 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyANmdEoVE49Ur6gPmnSoFMlfyHhZvn1Fbc',
-    appId: '1:357307858830:web:fde4b58171e64022beaedf',
-    messagingSenderId: '357307858830',
-    projectId: 'smart-soft-babfa',
-    authDomain: 'smart-soft-babfa.firebaseapp.com',
-    storageBucket: 'smart-soft-babfa.appspot.com',
-    measurementId: 'G-3NQW6R9P2G',
+    apiKey: 'AIzaSyBih1AtR6SqrvfvX5R9WHPiQdPTPrrkMmI',
+    appId: '1:970704007603:web:0e5299af95ff7b9c82dbc6',
+    messagingSenderId: '970704007603',
+    projectId: 'naturix-e6bf7',
+    authDomain: 'naturix-e6bf7.firebaseapp.com',
+    databaseURL: 'https://naturix-e6bf7-default-rtdb.firebaseio.com',
+    storageBucket: 'naturix-e6bf7.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDeSNDL-Oal-yCvckvd2K881B0q6C7pOWo',
-    appId: '1:357307858830:android:31bda3dfdfef59a2beaedf',
-    messagingSenderId: '357307858830',
-    projectId: 'smart-soft-babfa',
-    storageBucket: 'smart-soft-babfa.appspot.com',
+    apiKey: 'AIzaSyDnAn63GlwVWYzhAzYObLQPfjmi_hP1SEI',
+    appId: '1:970704007603:android:ae85661c512b9c7182dbc6',
+    messagingSenderId: '970704007603',
+    projectId: 'naturix-e6bf7',
+    databaseURL: 'https://naturix-e6bf7-default-rtdb.firebaseio.com',
+    storageBucket: 'naturix-e6bf7.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCHK-7SgYqa1ivoCkoRnodXh1UL7e1RrcU',
-    appId: '1:357307858830:ios:2ec6638f99dd8136beaedf',
-    messagingSenderId: '357307858830',
-    projectId: 'smart-soft-babfa',
-    storageBucket: 'smart-soft-babfa.appspot.com',
+    apiKey: 'AIzaSyCKFUVU5UenUJpGngWI17B4nRCs8xhQEWQ',
+    appId: '1:970704007603:ios:cb9ddb33ed4093b082dbc6',
+    messagingSenderId: '970704007603',
+    projectId: 'naturix-e6bf7',
+    databaseURL: 'https://naturix-e6bf7-default-rtdb.firebaseio.com',
+    storageBucket: 'naturix-e6bf7.appspot.com',
+    iosClientId: '970704007603-38h7lanr3soku18e4k3tcmce7lj6arg9.apps.googleusercontent.com',
     iosBundleId: 'com.example.smartSoft',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCHK-7SgYqa1ivoCkoRnodXh1UL7e1RrcU',
-    appId: '1:357307858830:ios:2681677ce9073414beaedf',
-    messagingSenderId: '357307858830',
-    projectId: 'smart-soft-babfa',
-    storageBucket: 'smart-soft-babfa.appspot.com',
+    apiKey: 'AIzaSyCKFUVU5UenUJpGngWI17B4nRCs8xhQEWQ',
+    appId: '1:970704007603:ios:34219b657029e95d82dbc6',
+    messagingSenderId: '970704007603',
+    projectId: 'naturix-e6bf7',
+    databaseURL: 'https://naturix-e6bf7-default-rtdb.firebaseio.com',
+    storageBucket: 'naturix-e6bf7.appspot.com',
+    iosClientId: '970704007603-f1fpmkkl57de9bk0s7r5jcis6l1g7tdj.apps.googleusercontent.com',
     iosBundleId: 'com.example.smartSoft.RunnerTests',
   );
 }

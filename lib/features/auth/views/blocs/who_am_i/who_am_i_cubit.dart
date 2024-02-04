@@ -34,13 +34,13 @@ class WhoAmICubit extends Cubit<WhoAmIState> {
 
   String whoAmI(int value){
     switch(value){
-      case 1 :
+      case 0 :
         return AppConsts.person;
 
-      case 2 :
+      case 1 :
         return AppConsts.organization;
 
-      case 3 :
+      case 2 :
         return AppConsts.restaurant;
 
       default:
