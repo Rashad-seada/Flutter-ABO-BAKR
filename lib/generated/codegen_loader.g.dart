@@ -27,12 +27,17 @@ class CodegenLoader extends AssetLoader{
   "auth_method_description": "اختر بين تسجيل الدخول الآمن أو التسجيل السريع لتخصيص وصولك.",
   "login": "تسجيل الدخول",
   "register": "انشاء حساب",
+  "google": "جوجل",
   "login_description": "قم بتسجيل الدخول لتجربة فريدة وشخصية",
   "register_description": "سجّل للوصول إلى تجربة حصرية",
   "email": "البريد الالكتروني",
   "password": "الرقم السري",
+  "phone_number": "رقم الهاتف",
+  "username": "اسم المستخدم",
   "email_hint": "ادخل البريد الاكتروني",
   "password_hint": "ادخل كلمه المرور الخاصه بك",
+  "phone_number_hint": "ادخل رقم الهاف الخاصه بك",
+  "username_hint": "ادخل اسم المستخدم الخاصه بك",
   "remember_me": "تذكرني",
   "forgot_password": "نسيت كلمه المرور؟",
   "dont_have_account": "ليس لديك حساب",
@@ -44,7 +49,13 @@ class CodegenLoader extends AssetLoader{
   "have_no_products_description": "جرب إضافة بعض المنتجات وستظهر في هذه الصفحة من خلال الرمز زائد أدناه",
   "add": "اضف",
   "add_product": "اضف منتج",
-  "home": "الرئيسيه"
+  "home": "الرئيسيه",
+  "who_am_i": "من انا؟",
+  "person": "شخص",
+  "organization": "مؤسسه",
+  "restaurant": "مطعم",
+  "reset_password": "تغيير كلمه المرور",
+  "reset_password_sub_text": "من فضلك ادخل البريد الخاص بك و ستصلك رساله قريبا"
 };
 static const Map<String,dynamic> en = {
   "on_boarding_title_1": "Digital Catalog",
@@ -59,12 +70,17 @@ static const Map<String,dynamic> en = {
   "auth_method_description": "choose between secure login or quick registration to tailor your access.",
   "login": "Login",
   "register": "Register",
+  "google": "Google",
   "login_description": "Unlock Your World: Sign In for a Personalized Experience",
   "register_description": "Embark on Your Journey: Register for Exclusive Access",
   "email": "Email",
   "password": "Password",
+  "phone_number": "Phone number",
+  "username": "Username",
   "email_hint": "Enter your email",
   "password_hint": "Enter your password",
+  "phone_number_hint": "Enter your phone number",
+  "username_hint": "Enter your username",
   "remember_me": "Remember me",
   "forgot_password": "Forgot password?",
   "dont_have_account": "don't have an account?",
@@ -76,7 +92,13 @@ static const Map<String,dynamic> en = {
   "have_no_products_description": "Try adding some products and it will appear in this page from the plus icon below",
   "add": "Add",
   "add_product": "Add Product",
-  "home": "Home"
+  "home": "Home",
+  "who_am_i": "Who am I?",
+  "person": "Person",
+  "organization": "Organization",
+  "restaurant": "Restaurant",
+  "reset_password": "Reset password",
+  "reset_password_sub_text": "Please enter your email, an email will be sent to your inbox"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

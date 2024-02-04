@@ -15,15 +15,20 @@
 
   "login": "Login",
   "register": "Register",
+  "google": "Google",
 
   "login_description": "Unlock Your World: Sign In for a Personalized Experience",
   "register_description": "Embark on Your Journey: Register for Exclusive Access",
 
   "email": "Email",
   "password": "Password",
+  "phone_number": "Phone number",
+  "username": "Username",
 
   "email_hint": "Enter your email",
   "password_hint": "Enter your password",
+  "phone_number_hint": "Enter your phone number",
+  "username_hint": "Enter your username",
 
   "remember_me": "Remember me",
   "forgot_password": "Forgot password?",
@@ -41,6 +46,14 @@
 
   "add": "Add",
   "add_product": "Add Product",
-  "home": "Home"
+  "home": "Home",
+
+  "who_am_i": "Who am I?",
+  "person": "Person",
+  "organization": "Organization",
+  "restaurant": "Restaurant",
+
+  "reset_password": "Reset password",
+  "reset_password_sub_text": "Please enter your email, an email will be sent to your inbox"
 
 }

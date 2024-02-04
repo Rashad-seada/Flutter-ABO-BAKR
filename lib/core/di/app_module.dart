@@ -1,14 +1,14 @@
 import 'package:get_it/get_it.dart';
+import 'package:smart_soft/features/auth/data/data_source/local_data_soucre/auth_local_data_source.dart';
 import 'package:smart_soft/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:smart_soft/features/auth/domain/repo/auth_repo.dart';
+import 'package:smart_soft/features/auth/domain/usecases/delete_user_use_case.dart';
+import 'package:smart_soft/features/auth/domain/usecases/get_user_use_case.dart';
 import 'package:smart_soft/features/auth/domain/usecases/register_use_case.dart';
+import 'package:smart_soft/features/auth/domain/usecases/reset_password_use_case.dart';
+import 'package:smart_soft/features/auth/domain/usecases/select_who_am_i_use_case.dart';
+import 'package:smart_soft/features/auth/domain/usecases/set_user_use_case.dart';
 import 'package:smart_soft/features/auth/domain/usecases/sign_in_use_case.dart';
-import 'package:smart_soft/features/products/data/data_source/local_data_source/product_local_data_source.dart';
-import 'package:smart_soft/features/products/data/repo/product_repo.dart';
-import 'package:smart_soft/features/products/domain/repo/product_repo_impl.dart';
-import 'package:smart_soft/features/products/domain/usecase/delete_product_use_case.dart';
-import 'package:smart_soft/features/products/domain/usecase/get_all_products_use_case.dart';
-import 'package:smart_soft/features/products/domain/usecase/insert_product_use_case.dart';
 import '../../features/auth/data/data_source/remote_data_source/firebase_service.dart';
 import '../infrastructure/services/network_service.dart';
 
@@ -23,19 +23,23 @@ abstract class AppModule {
 
     //data source
     getIt.registerSingleton<FirebaseService>(FirebaseService());
-    getIt.registerSingleton<ProductLocalDataSource>(ProductLocalDataSourceImpl());
+    getIt.registerSingleton<AuthLocalDataSource>(AuthLocalDataSourceImpl());
+    getIt<AuthLocalDataSource>().initHive();
 
     //repos
     getIt.registerSingleton<AuthRepo>(AuthRepoImpl());
-    getIt.registerSingleton<ProductRepo>(ProductRepoImpl());
 
     //use case
+    getIt.registerSingleton<GetUserUseCase>(GetUserUseCase());
+    getIt.registerSingleton<SetUserUseCase>(SetUserUseCase());
+    getIt.registerSingleton<DeleteUserUseCase>(DeleteUserUseCase());
+
     getIt.registerSingleton<SignInUseCase>(SignInUseCase());
     getIt.registerSingleton<RegisterUseCase>(RegisterUseCase());
+    getIt.registerSingleton<ResetPasswordUseCase>(ResetPasswordUseCase());
+    getIt.registerSingleton<SelectWhoAmIUseCase>(SelectWhoAmIUseCase());
 
-    getIt.registerSingleton<GetAllProductsUseCase>(GetAllProductsUseCase());
-    getIt.registerSingleton<DeleteProductUseCase>(DeleteProductUseCase());
-    getIt.registerSingleton<InsertProductUseCase>(InsertProductUseCase());
+
 
 
   }

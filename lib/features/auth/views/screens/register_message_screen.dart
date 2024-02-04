@@ -63,6 +63,7 @@ class RegisterMessageScreen extends StatelessWidget {
               ),
 
               MainButton(
+                color: AppTheme.primary900,
                 width: 86.w,
                 height: 7.h,
                 label: Text(

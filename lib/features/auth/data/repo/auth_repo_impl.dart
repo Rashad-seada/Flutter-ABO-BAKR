@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:smart_soft/core/di/app_module.dart';
 import 'package:smart_soft/core/errors/failure.dart';
 import 'package:smart_soft/core/infrastructure/services/network_service.dart';
+import 'package:smart_soft/features/auth/data/data_source/local_data_soucre/auth_local_data_source.dart';
 import 'package:smart_soft/features/auth/data/data_source/remote_data_source/firebase_service.dart';
 import 'package:smart_soft/features/auth/domain/model/user_model.dart';
 import 'package:smart_soft/features/auth/domain/repo/auth_repo.dart';
@@ -12,10 +13,11 @@ class AuthRepoImpl implements AuthRepo {
 
   NetworkService networkService = getIt<NetworkService>();
   FirebaseService remoteDataSource = getIt<FirebaseService>();
+  AuthLocalDataSource localDataSource = getIt<AuthLocalDataSource>();
 
 
   @override
-  Future<Either<Failure,UserModel>> register({required String email, required String password}) async {
+  Future<Either<Failure,UserModel>> register({required String email,required String password,required String username,required String phoneNumber}) async {
     try{
 
       if(!await networkService.isConnected){
@@ -25,7 +27,12 @@ class AuthRepoImpl implements AuthRepo {
         ));
       }
 
-      UserModel user = await remoteDataSource.signUpWithEmailAndPassword(email: email, password: password);
+      UserModel user = await remoteDataSource.signUpWithEmailAndPassword(
+          email: email,
+          password: password,
+          username: username,
+          phoneNumber: phoneNumber
+      );
 
       if(user.id == null){
         return left(RemoteDataFailure(
@@ -79,5 +86,112 @@ class AuthRepoImpl implements AuthRepo {
       return left(InternalFailure(e.toString(),failureCode: 4));
     }
 
+  }
+
+  @override
+  Future<Either<Failure, void>> resetPassword({required String email,}) async {
+    try{
+
+      if(!await networkService.isConnected){
+        return left(ServiceFailure(
+            "Please check your internet connection",
+            failureCode: 0
+        ));
+      }
+
+      await remoteDataSource.resetPassword(email:email);
+
+      return right(null);
+
+    }on RemoteDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 2));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 3));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 4));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> selectWhoAmI({required String id, required String whoAmI}) async {
+    try{
+
+      if(!await networkService.isConnected){
+        return left(ServiceFailure(
+            "Please check your internet connection",
+            failureCode: 0
+        ));
+      }
+
+      await remoteDataSource.selectWhoAmI(id: id, whoAmI: whoAmI);
+
+      return right(null);
+
+    }on RemoteDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 2));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 3));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 4));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> deleteUser() async {
+    try{
+
+      await localDataSource.deleteUserDetails();
+      return right(null);
+
+    }on LocalDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 2));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 3));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 4));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserModel?>> getUser() async {
+    try{
+
+      var user = await localDataSource.getUserDetails();
+
+      return right(user);
+
+    }on LocalDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 2));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 3));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 4));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> setUser({required UserModel userModel}) async{
+    try{
+      await localDataSource.setUserDetails(userModel);
+
+      return right(null);
+
+    }on LocalDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 2));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 3));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 4));
+    }
   }
 }

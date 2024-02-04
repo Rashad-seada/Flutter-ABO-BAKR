@@ -18,6 +18,8 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
   onRegisterClick(BuildContext context){
     register(context);
@@ -33,7 +35,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   register(BuildContext context){
     emit(RegisterLoading());
-    getIt<RegisterUseCase>().call(emailController.text,passwordController.text)
+    getIt<RegisterUseCase>().call(emailController.text,passwordController.text,usernameController.text,phoneNumberController.text)
     .then((value) => value.fold(
       (error) {
         emit(RegisterError(error));

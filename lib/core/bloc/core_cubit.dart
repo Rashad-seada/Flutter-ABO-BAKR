@@ -8,14 +8,11 @@ import 'package:meta/meta.dart';
 import '../../firebase_options.dart';
 import '../config/app_theme.dart';
 import '../di/app_module.dart';
-import '../infrastructure/database/database.dart';
 
 part 'core_state.dart';
 
 class CoreCubit extends Cubit<CoreState> {
   CoreCubit() : super(CoreInitial());
-
-  static late AppDatabase database;
 
   static Future<void> setupApp() async {
 
@@ -42,8 +39,6 @@ class CoreCubit extends Cubit<CoreState> {
     // initialize locale
     await EasyLocalization.ensureInitialized();
 
-    // initialize database
-    database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
   }
 

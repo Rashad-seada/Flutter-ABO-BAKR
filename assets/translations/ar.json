@@ -15,15 +15,20 @@
 
   "login": "تسجيل الدخول",
   "register": "انشاء حساب",
+  "google": "جوجل",
 
   "login_description": "قم بتسجيل الدخول لتجربة فريدة وشخصية",
   "register_description": "سجّل للوصول إلى تجربة حصرية",
 
   "email": "البريد الالكتروني",
   "password": "الرقم السري",
+  "phone_number": "رقم الهاتف",
+  "username": "اسم المستخدم",
 
   "email_hint": "ادخل البريد الاكتروني",
   "password_hint": "ادخل كلمه المرور الخاصه بك",
+  "phone_number_hint": "ادخل رقم الهاف الخاصه بك",
+  "username_hint": "ادخل اسم المستخدم الخاصه بك",
 
   "remember_me": "تذكرني",
   "forgot_password": "نسيت كلمه المرور؟",
@@ -41,6 +46,14 @@
 
   "add": "اضف",
   "add_product": "اضف منتج",
-  "home": "الرئيسيه"
+  "home": "الرئيسيه",
+
+  "who_am_i": "من انا؟",
+  "person": "شخص",
+  "organization": "مؤسسه",
+  "restaurant": "مطعم",
+
+  "reset_password": "تغيير كلمه المرور",
+  "reset_password_sub_text": "من فضلك ادخل البريد الخاص بك و ستصلك رساله قريبا"
 
 }

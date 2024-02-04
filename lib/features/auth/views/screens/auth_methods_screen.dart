@@ -29,7 +29,7 @@ class AuthMethodsScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7.w),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,9 +38,9 @@ class AuthMethodsScreen extends StatelessWidget {
               height: 10.h,
             ),
             Center(
-              child: SvgPicture.asset(
+              child: Image.asset(
                 AppImages.authMethods,
-                width: 86.w,
+                width: 100.w,
                 height: 28.h,
               ),
             ),
@@ -68,6 +68,7 @@ class AuthMethodsScreen extends StatelessWidget {
               height: 8.h,
             ),
             MainButton(
+              color: AppTheme.primary900,
               width: 86.w,
               height: 7.h,
               label: Text(
@@ -90,7 +91,7 @@ class AuthMethodsScreen extends StatelessWidget {
             MainButton(
               width: 86.w,
               height: 7.h,
-              color: AppTheme.neutral600,
+              color: AppTheme.primary900,
               label: Text(
                 LocaleKeys.register,
                 style: AppTheme.mainTextStyle(

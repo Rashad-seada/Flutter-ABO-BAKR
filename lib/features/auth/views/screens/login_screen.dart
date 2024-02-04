@@ -10,6 +10,7 @@ import 'package:smart_soft/features/auth/views/blocs/login/login_cubit.dart';
 
 import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';
+import '../../../../core/views/widgets/custom_appbar.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
@@ -22,16 +23,19 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(child: Scaffold(
 
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 7.w),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: ListView(
           children: [
 
             Space(
-              height: 6.h,
+              height: 3.h,
             ),
 
+            CustomAppbar(title: "",),
+
+
             Center(
-              child: SvgPicture.asset(
+              child: Image.asset(
                 AppImages.login,
                 width: 86.w,
                 height: 20.h,
@@ -59,7 +63,7 @@ class LoginScreen extends StatelessWidget {
             ).tr(),
 
             Space(
-              height: 4.h,
+              height: 3.h,
             ),
 
             CustomTextField(
@@ -77,7 +81,7 @@ class LoginScreen extends StatelessWidget {
               hint: LocaleKeys.email_hint.tr(),
             ),
             Space(
-              height: 2.5.h,
+              height: 2.h,
             ),
             CustomTextField(
               controller: context.read<LoginCubit>().passwordController,
@@ -94,7 +98,7 @@ class LoginScreen extends StatelessWidget {
               hint: LocaleKeys.password_hint.tr(),
             ),
             Space(
-              height: 1.8.h,
+              height: 2.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +125,7 @@ class LoginScreen extends StatelessWidget {
             ),
 
             Space(
-              height: 10.h,
+              height: 12.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -155,6 +159,7 @@ class LoginScreen extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 return MainButton(
+                  color: AppTheme.primary900,
                           width: 86.w,
                           height: 7.h,
                           label: (state is LoginLoading)? CustomProgressIndicator(

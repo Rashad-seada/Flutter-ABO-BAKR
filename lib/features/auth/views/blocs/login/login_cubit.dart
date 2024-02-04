@@ -1,13 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:smart_soft/core/config/app_consts.dart';
 import 'package:smart_soft/core/di/app_module.dart';
 import 'package:smart_soft/core/errors/failure.dart';
 import 'package:smart_soft/features/auth/domain/usecases/sign_in_use_case.dart';
 import 'package:smart_soft/features/auth/views/screens/register_screen.dart';
-import 'package:smart_soft/features/products/views/screens/products_screen.dart';
+import 'package:smart_soft/features/auth/views/screens/reset_password_screen.dart';
 
 import '../../../../../core/views/widgets/custom_flush_bar.dart';
+import '../../screens/who_am_i_screen.dart';
 
 part 'login_state.dart';
 
@@ -19,7 +21,7 @@ class LoginCubit extends Cubit<LoginState> {
   bool rememberMe = true;
 
   onForgotPasswordClick(BuildContext context){
-    navigateToRegisterScreen(context);
+    navigateToResetPasswordScreen(context);
   }
 
   onLoginClick(BuildContext context){
@@ -57,7 +59,13 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   navigateToProductsScreen(BuildContext context){
-    Navigator.push(context,MaterialPageRoute(builder: (_)=> const ProductsScreen()));
+    Navigator.push(context,MaterialPageRoute(builder: (_)=> const WhoAmIScreen()));
   }
+
+  navigateToResetPasswordScreen(BuildContext context){
+    Navigator.push(context,MaterialPageRoute(builder: (_)=> const ResetPasswordScreen()));
+  }
+
+
 
 }
